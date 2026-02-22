@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hopeworks Operator Dashboard</title>
+  <link rel="stylesheet" href="../css/operator-dashboard.css" />
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="bg"></div>
+  <div class="bg-overlay"></div>
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="icon-btn" aria-label="Open menu">
+        <!-- Hamburger -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="brand">
+        <img src="../assets/images/logo.jpg" alt="Hopeworks" class="brand-logo" />
+        <div class="brand-text">
+          <div class="brand-title">Hopeworks</div>
+          <div class="brand-sub">Manpower Management System</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Primary">
+      <button class="tab is-active" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="tasks">My Tasks</button>
+      <button class="tab" data-tab="attendance">Attendance</button>
+      <button class="tab" data-tab="projects">Projects</button>
+      <button class="tab" data-tab="history">History</button>
+    </nav>
+
+    <div class="topbar-right">
+      <button class="icon-btn notif" aria-label="Notifications">
+        <span class="badge" aria-label="2 unread notifications">2</span>
+        <!-- Bell -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18 17v-6a6 6 0 10-12 0v6l-2 2h16l-2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button class="profile" aria-label="Profile menu">
+        <img src="../assets/images/bg-construction.jpg" alt="Operator" class="avatar" />
+        <span class="profile-name">Mark Gutierrez</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container">
+    <!-- CURRENT ASSIGNMENT CARD -->
+    <section class="card card-lg">
+      <div class="card-head">
+        <h1 class="card-title">Current Assignment</h1>
+
+        <div class="card-actions">
+          <span class="status-pill status-not-timed" id="statusPill">Not Timed In</span>
+          <button class="primary-btn" id="timeBtn">
+            <span class="btn-icon">
+              <!-- clock -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </span>
+            <span id="timeBtnText">TIME IN</span>
+            <span class="btn-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="assignment">
+        <div class="assignment-info">
+          <div class="assignment-project">Excavation Project — Tarlac</div>
+
+          <div class="meta-grid">
+            <div class="meta">
+              <div class="meta-label">Project Duration</div>
+              <div class="meta-value">Feb 1, 2026 — Apr 30, 2026</div>
+            </div>
+            <div class="meta">
+              <div class="meta-label">Your Assignment</div>
+              <div class="meta-value">Feb 15 — Mar 15, 2026</div>
+            </div>
+            <div class="meta">
+              <div class="meta-label">Assigned Role</div>
+              <div class="meta-value">Excavator Operator</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline-wrap">
+        <div class="timeline-label">Today</div>
+
+        <div class="timeline" id="timeline">
+          <!-- DAY CARD: Today -->
+          <div class="day is-today">
+            <div class="day-top">
+              <div class="day-date">21</div>
+              <div class="day-dow">Fri</div>
+            </div>
+            <div class="day-time">8:00 AM – 5:00 PM</div>
+            <div class="day-status ok">
+              <span class="dot"></span>
+              <span class="txt">Completed</span>
+            </div>
+          </div>
+
+          <div class="day">
+            <div class="day-top">
+              <div class="day-date">22</div>
+              <div class="day-dow">Sat</div>
+            </div>
+            <div class="day-time">8:00 AM – 5:00 PM</div>
+            <div class="day-status upcoming">
+              <span class="dot"></span>
+              <span class="txt">Upcoming</span>
+            </div>
+          </div>
+
+          <div class="day">
+            <div class="day-top">
+              <div class="day-date">23</div>
+              <div class="day-dow">Sun</div>
+            </div>
+            <div class="day-time">No Work</div>
+            <div class="day-status rest">
+              <span class="dot"></span>
+              <span class="txt">Rest Day</span>
+            </div>
+          </div>
+
+          <div class="day">
+            <div class="day-top">
+              <div class="day-date">24</div>
+              <div class="day-dow">Mon</div>
+            </div>
+            <div class="day-time">8:00 AM – 5:00 PM</div>
+            <div class="day-status missed">
+              <span class="dot"></span>
+              <span class="txt">Missed</span>
+            </div>
+          </div>
+
+          <div class="day">
+            <div class="day-top">
+              <div class="day-date">25</div>
+              <div class="day-dow">Tue</div>
+            </div>
+            <div class="day-time">8:00 AM – 5:00 PM</div>
+            <div class="day-status missed">
+              <span class="dot"></span>
+              <span class="txt">Missed</span>
+            </div>
+          </div>
+
+          <div class="day">
+            <div class="day-top">
+              <div class="day-date">26</div>
+              <div class="day-dow">Wed</div>
+            </div>
+            <div class="day-time">8:00 AM – 5:00 PM</div>
+            <div class="day-status upcoming">
+              <span class="dot"></span>
+              <span class="txt">Upcoming</span>
+            </div>
+          </div>
+
+          <div class="day">
+            <div class="day-top">
+              <div class="day-date">27</div>
+              <div class="day-dow">Thu</div>
+            </div>
+            <div class="day-time">8:00 AM – 5:00 PM</div>
+            <div class="day-status upcoming">
+              <span class="dot"></span>
+              <span class="txt">Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer strip -->
+      <div class="verify-strip">
+        <div class="strip-item">
+          <!-- pin -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>Assigned Site: <strong>Tarlac Construction Zone</strong></span>
+        </div>
+
+        <div class="strip-divider"></div>
+
+        <div class="strip-item">
+          <!-- target -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22a10 10 0 110-20 10 10 0 010 20z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 18a6 6 0 110-12 6 6 0 010 12z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 14a2 2 0 110-4 2 2 0 010 4z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>Geofence Radius: <strong>100m</strong></span>
+        </div>
+
+        <div class="strip-divider"></div>
+
+        <div class="strip-item">
+          <!-- face -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M8 3H6a3 3 0 00-3 3v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16 3h2a3 3 0 013 3v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 21H6a3 3 0 01-3-3v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16 21h2a3 3 0 003-3v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 10h.01M15 10h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M9 15c1 1 5 1 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Face Recognition Required</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick cards row -->
+    <section class="quick-row">
+      <div class="quick-card">
+        <div class="quick-head">
+          <div class="quick-icon">
+            <!-- list -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M8 6h13M8 12h13M8 18h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="quick-title">My Tasks</div>
+        </div>
+        <div class="quick-sub">2 pending tasks to review</div>
+        <button class="ghost-btn">View Details</button>
+      </div>
+
+      <div class="quick-card">
+        <div class="quick-head">
+          <div class="quick-icon">
+            <!-- calendar -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 8h16M6 5h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="quick-title">Attendance</div>
+        </div>
+        <div class="quick-sub">See your attendance records</div>
+        <button class="ghost-btn">View Details</button>
+      </div>
+
+      <div class="quick-card">
+        <div class="quick-head">
+          <div class="quick-icon">
+            <!-- folder -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M3 7a2 2 0 012-2h5l2 2h9a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="quick-title">Projects</div>
+        </div>
+        <div class="quick-sub">View assigned and upcoming projects</div>
+        <button class="ghost-btn">View Details</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal (UI only) -->
+  <div class="modal" id="verifyModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-top">
+        <div>
+          <div class="modal-title" id="modalTitle">Attendance Verification</div>
+          <div class="modal-sub">Camera + Face Recognition + GPS Validation</div>
+        </div>
+        <button class="icon-btn" id="closeModal" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="camera-box">
+        <div class="camera-placeholder">LIVE CAMERA FEED</div>
+      </div>
+
+      <div class="checks">
+        <div class="check pending" id="chkFace"><span class="c-dot"></span> Verifying Face…</div>
+        <div class="check pending" id="chkGps"><span class="c-dot"></span> Checking Location…</div>
+        <div class="check pending" id="chkTime"><span class="c-dot"></span> Validating Schedule…</div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="ghost-btn" id="cancelVerify">Cancel</button>
+        <button class="primary-btn" id="confirmVerify">
+          Confirm (UI Demo)
+          <span class="btn-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/operator-dashboard.js"></script>
+</body>
+</html>

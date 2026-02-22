@@ -38,7 +38,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     text-align: center;
-    border-bottom: 8px solid #4F5A5D; /* Dark grey accent sa ilalim */
+    border-bottom: 5px solid #bbc0c2; /* Dark grey accent sa ilalim */
 }
 
 /* 5. Logo Scale */
@@ -101,6 +101,26 @@ body {
     outline: none;
 }
 
+
+/* 8. Forgot Password Link */
+.forgot-pass {
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.forgot-pass a {
+    color: #666;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.forgot-pass a:hover {
+    color: #4F5A5D;
+    text-decoration: underline;
+}
+
 /* 8. Large Operator Button */
 .login-btn {
     width: 100%;
@@ -124,6 +144,19 @@ body {
     margin-top: clamp(1.2rem, 4vh, 2rem);
     font-size: 0.75rem;
     color: #999;
+}
+
+
+.login-footer a {
+    color: #4F5A5D;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+    color: #3d4648;
 }
 
 /* Hide scrollbar */
