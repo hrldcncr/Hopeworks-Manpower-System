@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Management | Hopeworks</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/style-admin-dashboard.css">
+    <link rel="stylesheet" href="../css/style-operator-mgt.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-brand">
+                <img src="../assets/images/logo.jpg" alt="Hopeworks Logo">
+                <h2>Hopeworks</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="admin-dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a></li>
+                <li class="active"><a href="admin-operator-mgt.html"><i class="fa-solid fa-users-gear"></i> <span>Operator Mgt.</span></a></li>
+                <li><a href="project-dispatch.html"><i class="fa-solid fa-trowel-bricks"></i> <span>Project & Dispatch</span></a></li>
+                <li><a href="attendance-gps.html"><i class="fa-solid fa-location-dot"></i> <span>Attendance & GPS</span></a></li>
+                <li><a href="payroll-engine.html"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Payroll Engine</span></a></li>
+                <li><a href="system-audit.html"><i class="fa-solid fa-clipboard-check"></i> <span>System Audit</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-title">
+                    <h1>Operator Management</h1>
+                    <p>Register and manage worker facial profiles</p>
+                </div>
+                <div class="header-info">
+                    <div class="date-box">
+                        <i class="fa-solid fa-calendar-day"></i>
+                        <span>February 21, 2026</span>
+                    </div>
+                    <div class="profile-pill">
+                        <img src="../assets/images/logo.jpg" alt="Admin Avatar">
+                        <span>Harold</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="mgt-tabs">
+    <button class="tab-link active" onclick="switchTab(event, 'Pending')">
+        <i class="fa-solid fa-user-clock"></i> Enrolled (Pending)
+    </button>
+    <button class="tab-link" onclick="switchTab(event, 'Active')">
+        <i class="fa-solid fa-user-check"></i> Verified (Available)
+    </button>
+    <button class="tab-link" onclick="switchTab(event, 'Deployed')">
+        <i class="fa-solid fa-helmet-safety"></i> Deployed (On-Site)
+    </button>
+    <button class="tab-link" onclick="switchTab(event, 'Archive')">
+        <i class="fa-solid fa-box-archive"></i> Contract Done
+    </button>
+    <button class="tab-link" onclick="switchTab(event, 'Deleted')">
+        <i class="fa-solid fa-trash-can"></i> Recycle Bin
+    </button>
+</div>
+
+<div class="mgt-controls">
+    <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search by name or ID...">
+    </div>
+    
+    <button class="btn-enroll" id="btnOpenModal">
+        <i class="fa-solid fa-user-plus"></i> Enroll New Operator
+    </button>
+</div>
+
+            <div class="table-container">
+                <table class="mgt-table">
+                    <thead>
+                        <tr>
+                            <th>Operator ID</th>
+                            <th>Full Name</th>
+                            <th>Contact</th>
+                            <th>Face Data</th> <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="operatorTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="enrollModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-camera"></i> Facial Enrollment</h3>
+                <button class="close-btn" id="btnCloseModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="enroll-grid">
+                    <div class="webcam-box" id="webcamContainer">
+                        <video id="video" width="100%" height="100%" autoplay muted playsinline></video>
+                        <div class="scan-overlay"></div>
+                        <div id="aiLoader" class="ai-loader">
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+                            <p>Loading AI Models...</p>
+                        </div>
+                    </div>
+                    
+                    <form class="enroll-form" id="registrationForm">
+                        <div class="input-group">
+                            <label>Operator ID</label>
+                            <input type="text" id="opID" placeholder="Generating ID..." readonly>
+                        </div>
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" id="opName" placeholder="Juan Dela Cruz" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="opContact" placeholder="09123456789" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-capture" id="captureBtn" disabled>
+                            <i class="fa-solid fa-id-card"></i> Start Capture
+                        </button>
+                        <p class="form-help">Please face the camera clearly and wait for the green box before capturing.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script defer src="../js/logic-operator-enrollment.js"></script>
+
+</body>
+</html>

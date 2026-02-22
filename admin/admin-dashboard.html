@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Hopeworks</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/style-admin-dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-brand">
+                <img src="../assets/images/logo.jpg" alt="Hopeworks Logo">
+                <h2>Hopeworks</h2>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="active">
+                    <a href="admin-dashboard.html">
+                        <i class="fa-solid fa-gauge-high"></i> 
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="operator-management.html">
+                        <i class="fa-solid fa-users-gear"></i> 
+                        <span>Operator Mgt.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="project-dispatch.html">
+                        <i class="fa-solid fa-trowel-bricks"></i> 
+                        <span>Project & Dispatch</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="attendance-gps.html">
+                        <i class="fa-solid fa-location-dot"></i> 
+                        <span>Attendance & GPS</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="payroll-engine.html">
+                        <i class="fa-solid fa-file-invoice-dollar"></i> 
+                        <span>Payroll Engine</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="system-audit.html">
+                        <i class="fa-solid fa-clipboard-check"></i> 
+                        <span>System Audit</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a href="../login/login-admin.html" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> 
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-title">
+                    <h1>Welcome back, Harold!</h1>
+                    <p>Monitoring Construction Efficiency & Manpower</p>
+                </div>
+                
+                <div class="header-info">
+                    <div class="date-box">
+                        <i class="fa-solid fa-calendar-day"></i>
+                        <span>February 21, 2026</span>
+                    </div>
+                    <div class="profile-pill">
+                        <img src="../assets/images/logo.jpg" alt="Admin Avatar">
+                        <span>Harold</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e1f5fe; color: #03a9f4;">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="stat-data">
+                        <h3>12</h3>
+                        <p>Total Operators</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fff3e0; color: #ff9800;">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+                    <div class="stat-data">
+                        <h3>5</h3>
+                        <p>Ongoing Projects</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e8f5e9; color: #4caf50;">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div class="stat-data">
+                        <h3>8</h3>
+                        <p>Verified Shifts Today</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fce4ec; color: #e91e63;">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div class="stat-data">
+                        <h3>2</h3>
+                        <p>GPS Alerts</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-activity">
+                <div class="activity-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-clock-rotate-left"></i> Recent System Activity</h2>
+                        <a href="system-audit.html" class="view-all">View Audit Logs</a>
+                    </div>
+                    <div class="activity-body">
+                        <div class="empty-msg">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <p>Waiting for real-time logs from operators...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
